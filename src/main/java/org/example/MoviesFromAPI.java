@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 import java.util.Objects;
 
-public class Movies implements Comparable<Movies> {
+public class MoviesFromAPI implements Comparable<MoviesFromAPI> {
     /**
      * Aqui lemos o nome serializado no json e atribuimos a uma variavel que ira
      * corresponder o atributo do json
@@ -42,10 +42,10 @@ public class Movies implements Comparable<Movies> {
     @SerializedName("vote_count")
     private int voteCount;
 
-    public Movies() {
+    public MoviesFromAPI() {
     }
 
-    public Movies(String backdropPath, int id, String title, String originalTitle, String overview, String posterPath, String mediaType, boolean adult, String originalLanguage, List<Integer> genreIds, double popularity, String releaseDate, boolean video, double voteAverage, int voteCount) {
+    public MoviesFromAPI(String backdropPath, int id, String title, String originalTitle, String overview, String posterPath, String mediaType, boolean adult, String originalLanguage, List<Integer> genreIds, double popularity, String releaseDate, boolean video, double voteAverage, int voteCount) {
         this.backdropPath = backdropPath;
         this.id = id;
         this.title = title;
@@ -207,8 +207,8 @@ public class Movies implements Comparable<Movies> {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Movies movies = (Movies) o;
-        return id == movies.id && Objects.equals(title, movies.title) && Objects.equals(releaseDate, movies.releaseDate);
+        MoviesFromAPI moviesFromAPI = (MoviesFromAPI) o;
+        return id == moviesFromAPI.id && Objects.equals(title, moviesFromAPI.title) && Objects.equals(releaseDate, moviesFromAPI.releaseDate);
     }
 
     @Override
@@ -217,7 +217,7 @@ public class Movies implements Comparable<Movies> {
     }
 
     @Override
-    public int compareTo(@NotNull Movies o) {
+    public int compareTo(@NotNull MoviesFromAPI o) {
         return title.compareTo(o.getTitle());
     }
 }

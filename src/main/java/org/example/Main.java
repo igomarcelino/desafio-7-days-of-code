@@ -1,20 +1,13 @@
 package org.example;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -35,23 +28,20 @@ public class Main {
         /**
          * Extraindo a lista de filmes de dentro da pagina e adicionando a uma lista de filmes
          * */
-        List<Movies> moviesList = new ArrayList<>();
+        List<MoviesFromAPI> moviesFromAPIList = new ArrayList<>();
         Gson gson = new Gson();
         Page page = gson.fromJson(response.body(), Page.class);
-        moviesList = page.getResults();
+        moviesFromAPIList = page.getResults();
 
-        List<String> titulos = moviesList.stream().map(Movies::getTitle).toList();
+        /*List<String> titulos = moviesList.stream().map(Movies::getTitle).toList();
         List<String> urlImgs = moviesList.stream().map(Movies::getBackdropPath).toList();
         List<String> anoLancamento = moviesList.stream().map(Movies::getReleaseDate).toList();
-        List<Double> notas = moviesList.stream().map(Movies::getVoteAverage).toList();
-        for (String s : titulos){
-            System.out.println("Titulos: " + s);
-        }for (String s : urlImgs){
-            System.out.println("Imagem: " + s);
-        }for (String s : anoLancamento){
-            System.out.println("Ano Lancamento: " + s.substring(0,4));
-        }for (Double d : notas){
-            System.out.println("Notas : " + d);
+        List<Double> notas = moviesList.stream().map(Movies::getVoteAverage).toList();*/
+
+        List<Movie> movies = new ArrayList<>();
+        movies = moviesFromAPIList.stream().map(Movie::new).toList();
+        for (Movie movie : movies){
+            System.out.println(movie);
         }
     }
 }

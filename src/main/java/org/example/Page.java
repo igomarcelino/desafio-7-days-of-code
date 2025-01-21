@@ -2,19 +2,18 @@ package org.example;
 
 import com.google.gson.annotations.SerializedName;
 
-import javax.swing.*;
 import java.util.List;
 
 public class Page {
     @SerializedName("page")
     private int page;
     @SerializedName("results")
-    private List<Movies> results;
+    private List<MoviesFromAPI> results;
 
     public Page() {
     }
 
-    public Page(int page, List<Movies> results) {
+    public Page(int page, List<MoviesFromAPI> results) {
         this.page = page;
         this.results = results;
     }
@@ -27,11 +26,11 @@ public class Page {
         this.page = page;
     }
 
-    public List<Movies> getResults() {
+    public List<MoviesFromAPI> getResults() {
         return results;
     }
 
-    public void setResults(List<Movies> results) {
+    public void setResults(List<MoviesFromAPI> results) {
         this.results = results;
     }
 
