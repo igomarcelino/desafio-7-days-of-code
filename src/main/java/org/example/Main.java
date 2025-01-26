@@ -2,6 +2,8 @@ package org.example;
 
 import com.google.gson.Gson;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -43,5 +45,11 @@ public class Main {
         for (Movie movie : movies){
             System.out.println(movie);
         }
+        HTMLGenerator htmlGenerator;
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("src/main/java/org/example/index.html"))){
+            htmlGenerator = new HTMLGenerator(bufferedWriter);
+            htmlGenerator.generate(movies);
+        }
+
     }
 }

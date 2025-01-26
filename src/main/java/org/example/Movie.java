@@ -22,7 +22,7 @@ public class Movie implements Comparable<Movie> {
 
     public Movie(MoviesFromAPI movie) {
         this.title = movie.getTitle();
-        this.urlImage = movie.getBackdropPath();
+        this.urlImage = "https://image.tmdb.org/t/p/w500"+movie.getBackdropPath();
         this.rating = movie.getVoteAverage();
         this.year = Integer.valueOf(movie.getReleaseDate().substring(0,4));
     }
