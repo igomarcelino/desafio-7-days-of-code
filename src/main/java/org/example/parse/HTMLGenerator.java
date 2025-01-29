@@ -1,19 +1,22 @@
-package org.example;
+package org.example.parse;
+
+import org.example.domain.Movie;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 public class HTMLGenerator {
 
 
-    private BufferedWriter writer;
+    private PrintWriter writer;
 
-    public HTMLGenerator(BufferedWriter writer) {
+    public HTMLGenerator(PrintWriter writer) {
         this.writer = writer;
     }
 
-    public BufferedWriter getWriter() {
+    public PrintWriter getWriter() {
         return writer;
     }
 

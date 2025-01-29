@@ -1,4 +1,4 @@
-package org.example;
+package org.example.domain;
 
 import com.google.gson.annotations.SerializedName;
 import org.jetbrains.annotations.NotNull;

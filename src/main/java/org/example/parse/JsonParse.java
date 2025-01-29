@@ -1,8 +1,10 @@
-package org.example;
+package org.example.parse;
 
 import com.google.gson.Gson;
+import org.example.domain.MoviesFromAPI;
+import org.example.domain.Movie;
+import org.example.domain.Page;
 
-import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
 
