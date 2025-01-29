@@ -16,23 +16,13 @@ public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
 
         // cria uma requisicao do tipo GET
-        HttpResponse<String> response = ImdbApiClient.chamadaApi("https://api.themoviedb.org/3/trending/movie/day?language=pt-BR");
+        String json = new ImdbApiClient("eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlMzBlOTY4YjJkYTg1YzhlZGNiNjI2YTM1ZmJjZTkzZiIsIm5iZiI6MTczNzM4MTE4Mi4zNzY5OTk5LCJzdWIiOiI2NzhlNTUzZWRiY2ZmMzNhOWM2NTU3YTYiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0._jMtPU8KDGEj8gj-ytwUBJlYuA2K2TGKVq5lPqYiDzk").getBody();
 
         /**
          * Extraindo a lista de filmes de dentro da pagina e adicionando a uma lista de filmes
          * */
-        List<MoviesFromAPI> moviesFromAPIList = new ArrayList<>();
-        Gson gson = new Gson();
-        Page page = gson.fromJson(response.body(), Page.class);
-        moviesFromAPIList = page.getResults();
 
-
-
-        List<Movie> movies = new ArrayList<>();
-        movies = moviesFromAPIList.stream().map(Movie::new).toList();
-        for (Movie movie : movies){
-            System.out.println(movie);
-        }
+        List<Movie> movies = new JsonParse(json).parseJson();
         HTMLGenerator htmlGenerator;
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("src/main/java/org/example/index.html"))){
             htmlGenerator = new HTMLGenerator(bufferedWriter);
