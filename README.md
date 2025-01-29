@@ -335,6 +335,14 @@ Instale o desafio-7-days-of-code usando um dos seguintes métodos:
 ```sh
 ❯ cd desafio-7-days-of-code
 ```
+3. Instale a dependencia do Gson
+ ```
+   <dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.11.0</version>
+</dependency>
+   ```
 
 
 
